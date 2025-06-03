@@ -1,0 +1,67 @@
+﻿﻿
+@{
+    ViewBag.Title = "SignIn";
+}
+
+<div class="sign section--bg" data-bg="~/Content/img/section/section.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="sign__content">
+                    @using (Html.BeginForm("SignIn", "Home", FormMethod.Post))
+                    {
+                        <a href="@Url.Action("Index","Home")" class="sign__logo">
+                            <img src="~/Content/img/logo.svg" alt="">
+                        </a>
+
+                        <div class="sign__group">
+                            <input type="text" class="sign__input" name="Email" placeholder="Email" required />
+                        </div>
+
+                        <div class="sign__group">
+                            <input type="password" class="sign__input" name="Password" placeholder="Password" required />
+                        </div>
+
+                        <div class="sign__group sign__group--checkbox">
+                            <input id="remember" name="remember" type="checkbox" checked="checked">
+                            <label for="remember">Remember Me</label>
+                        </div>
+
+                        <button class="sign__btn" type="submit">Sign in</button>
+
+                        <span class="sign__text">Don't have an account? <a href="@Url.Action("SignUp", "Home")">Sign up!</a></span>
+                        <span class="sign__text"><a href="@Url.Action("ForgotPassword", "Home")">Forgot password?</a></span>
+                    }
+
+                    <!-- authorization form -->
+                    <!--<form action="#" class="sign__form">
+
+        <a href="@Url.Action("Index","Home")" class="sign__logo">
+            <img src="~/Content/img/logo.svg" alt="">
+        </a>
+
+        <div class="sign__group">
+            <input type="text" class="sign__input" placeholder="Email">
+        </div>
+
+        <div class="sign__group">
+            <input type="password" class="sign__input" placeholder="Password">
+        </div>
+
+        <div class="sign__group sign__group--checkbox">
+            <input id="remember" name="remember" type="checkbox" checked="checked">
+            <label for="remember">Remember Me</label>
+        </div>
+
+        <button class="sign__btn" type="button">Sign in</button>
+
+        <span class="sign__text">Don't have an account? <a href="@Url.Action("SignUp","Home")">Sign up!</a></span>
+
+        <span class="sign__text"><a href="@Url.Action("ForgotPassword","Home")">Forgot password?</a></span>
+    </form>-->
+                    <!-- end authorization form -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

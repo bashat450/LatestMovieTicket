@@ -1,0 +1,50 @@
+﻿@model MovieBooking.Models.SignUpViewModel
+
+@{
+    ViewBag.Title = "SignUp";
+}
+
+<div class="sign section--bg" data-bg="~/Content/img/section/section.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="sign__content">
+                    <!-- registration form -->
+                    @using (Html.BeginForm("SignUp", "Home", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <a href="@Url.Action("Index","Home")" class="sign__logo">
+                            <img src="~/Content/img/logo.svg" alt="">
+                        </a>
+
+                        <div class="sign__group">
+                            @Html.TextBoxFor(m => m.Name, new { @class = "sign__input", placeholder = "Name" })
+                            @Html.ValidationMessageFor(m => m.Name)
+                        </div>
+
+                        <div class="sign__group">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "sign__input", placeholder = "Email" })
+                            @Html.ValidationMessageFor(m => m.Email)
+                        </div>
+
+                        <div class="sign__group">
+                            @Html.PasswordFor(m => m.Password, new { @class = "sign__input", placeholder = "Password" })
+                            @Html.ValidationMessageFor(m => m.Password)
+                        </div>
+
+                        <div class="sign__group sign__group--checkbox">
+                            <input id="remember" name="remember" type="checkbox" checked="checked">
+                            <label for="remember">I agree to the <a href="#">Privacy Policy</a></label>
+                        </div>
+
+                        <button class="sign__btn" type="submit">Sign up</button>
+
+                        <span class="sign__text">Already have an account? <a href="@Url.Action("SignIn","Home")">Sign in!</a></span>
+                    }
+                    <!-- registration form -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
