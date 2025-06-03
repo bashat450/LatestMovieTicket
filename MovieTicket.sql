@@ -17,14 +17,15 @@ End;
 Execute SP_GetAllDetails;
 
 Create procedure SP_GetDetails
-@Id int
+@Email nvarchar(100),
+@Password nvarchar(100)
 As
 Begin
 Select * from Users
-where Id = @Id;
+where Email=@Email and Password=@Password;
 End;
 
-Execute SP_GetDetails @Id = 1;
+Execute SP_GetDetails @Email='bashat@gmail.com',@Password='bashat123';
 
 Create procedure SP_InsertDetails
 @Name nvarchar(100),
